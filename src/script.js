@@ -42,8 +42,7 @@ function loadInfo(data) {
   const pokeID = data.id;
   const name = data.forms[0].name;
   const pokeName = name.charAt(0).toUpperCase() + name.slice(1);
-  const type = data.types[0].type.name;
-  const pokeType = type.charAt(0).toUpperCase() + type.slice(1);
+  const pokeType = getTypes(data);
   const pokeWeight = data.weight / 10;
   const pokeHeight = data.height / 10;
 
@@ -52,6 +51,20 @@ function loadInfo(data) {
   $("#pokeType").text("Type: " + pokeType);
   $("#pokeWeight").text("Weight: " + pokeWeight.toFixed(2) + " kg");
   $("#pokeHeight").text("Height: " + pokeHeight.toFixed(2) + " m");
+}
+
+function getTypes(data) {
+  const types = data.types;
+  let pokeType = "";
+  for (let i = 0; i < types.length; i++) {
+    let type = types[i].type.name;
+    pokeType += type.charAt().toUpperCase() + type.slice(1);
+
+    if (i !== types.length - 1) {
+      pokeType += ", ";
+    }
+  }
+  return pokeType;
 }
 
 function myFunction(imgs) {
