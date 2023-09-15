@@ -151,7 +151,6 @@
 
       <div class="container">
         <div class="pokeSearch">
-          <p>Search(All LOWERCASE!)</p>
           <input class="pokemon" placeholder="Enter a Pokemon Here" />
           <!-- Input Group to type in the pokemon   -->
           <button class="searchButton" onclick="fetchPokemon()">Submit</button>
@@ -161,16 +160,7 @@
 
       <br />
       <!-- Place holders for the information we will populate from our API. (For now let’s get the Name, ID, and Front Image for the pokemon) -->
-      <div class="container">
-        <h3 id="res"></h3>
-      </div>
-
-      <div class="container move">
-        <h3 id="pokeId"></h3>
-        <h3 id="pokeHeight"></h3>
-        <h3 id="pokeWeight"></h3>
-        <h3 id="pokeType"></h3>
-      </div>
+      <div class="container"></div>
 
       <div class="row">
         <div class="col-md-4">
@@ -182,6 +172,14 @@
         <div class="col-md-4">
           <img id="shiny" class="resize" src="" />
         </div>
+      </div>
+
+      <div class="container move">
+        <h3 id="pokeID"></h3>
+        <h3 id="pokeName"></h3>
+        <h3 id="pokeType"></h3>
+        <h3 id="pokeHeight"></h3>
+        <h3 id="pokeWeight"></h3>
       </div>
     </main>
     <br />

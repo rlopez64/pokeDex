@@ -1,44 +1,57 @@
 function fetchPokemon() {
-  let pokemon = $(".pokemon").val();
-  let request = new XMLHttpRequest();
+  const pokemon = $(".pokemon").val().toLowerCase();
 
-  let url = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
-  console.log(url);
+  // quit function if user hasn't entered a value
+  if (pokemon == null || pokemon.trim() === "") {
+    return;
+  }
+
+  const request = new XMLHttpRequest();
+  const url = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
 
   request.open("GET", url, true);
+
   request.onload = function () {
     if (this.response == "Not Found") {
-      $("#res").text('Search Result for:"' + pokemon + '"');
-      $("#pokeId").text("Pokemon not found. Please try again.");
+      $("#pokeID").text("Pokemon not found. Please try again.");
     } else {
-      let data = JSON.parse(this.response);
+      const data = JSON.parse(this.response);
 
       if (request.status >= 200 && request.status < 400) {
-        let frontImg = data.sprites.front_default;
-        let backImg = data.sprites.back_default;
-        let shinyImg = data.sprites.front_shiny;
-        let pokeId = data.id;
-        let pokeWeight = data.weight;
-        let pokeHeight = data.height;
-        let pokeType = data.types[0].type.name;
-
-        $("#res").text('Search Result for: " ' + pokemon + ' "');
-        $("#pokeId").text("This pokemon's ID in the pokedex is: " + pokeId);
-        $("#pokeWeight").text(
-          pokemon + " has a base unit weight of " + pokeWeight
-        );
-        $("#pokeHeight").text(
-          pokemon + " has a base unit height of " + pokeHeight
-        );
-        $("#pokeType").text("Type: " + pokeType);
-        $("#front").attr("src", frontImg);
-        $("#back").attr("src", backImg);
-        $("#shiny").attr("src", shinyImg);
+        loadImages(data);
+        loadInfo(data);
       }
     }
   };
 
   request.send();
+}
+
+function loadImages(data) {
+  const frontImg = data.sprites.front_default;
+  const backImg = data.sprites.back_default;
+  const shinyImg = data.sprites.front_shiny;
+
+  // Images
+  $("#front").attr("src", frontImg);
+  $("#back").attr("src", backImg);
+  $("#shiny").attr("src", shinyImg);
+}
+
+function loadInfo(data) {
+  const pokeID = data.id;
+  const name = data.forms[0].name;
+  const pokeName = name.charAt(0).toUpperCase() + name.slice(1);
+  const type = data.types[0].type.name;
+  const pokeType = type.charAt(0).toUpperCase() + type.slice(1);
+  const pokeWeight = data.weight / 10;
+  const pokeHeight = data.height / 10;
+
+  $("#pokeID").text("#" + pokeID);
+  $("#pokeName").text("Name: " + pokeName);
+  $("#pokeType").text("Type: " + pokeType);
+  $("#pokeWeight").text("Weight: " + pokeWeight.toFixed(2) + " kg");
+  $("#pokeHeight").text("Height: " + pokeHeight.toFixed(2) + " m");
 }
 
 function myFunction(imgs) {
