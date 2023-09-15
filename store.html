@@ -1,635 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Poke-Store</title>
+    <link rel="icon" type="image/x-icon" href="pokeball.png" />
 
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Poke-Store</title>
-  <link rel="icon" type="image/x-icon" href="pokeball.png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="store.css" />
 
+    <!--   Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="store.css">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
 
-  <!--   Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--   Friconix -->
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+    <!-- Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&family=Rubik+80s+Fade&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
+    <!-- Additional JS -->
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+  </head>
 
-  <!--   Friconix -->
-  <script defer src="https://friconix.com/cdn/friconix.js"> </script>
-
-  <!-- Fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&family=Rubik+80s+Fade&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- Additional JS -->
-  <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
-
-
-</head>
-
-
-<body>
-  <header>
-
-    <!-- Background image -->
-    <div class="p-5 text-center bg-image bannerImg">
-      <div>
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="text-white">
-            <h1 class="mb-3">Poke-Store</h1>
-            <h4 class="mb-3">Find everything you need to become a master trainer!</h4>
+  <body>
+    <header>
+      <!-- Background image -->
+      <div class="p-5 text-center bg-image bannerImg">
+        <div>
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+              <h1 class="mb-3">Poke-Store</h1>
+              <h4 class="mb-3">
+                Find everything you need to become a master trainer!
+              </h4>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </header>
 
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="./pokeIcons/pokedexIcon.png"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Home
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="store.html">
+              <img
+                src="./pokeIcons/poke-storeIcon.png "
+                height="30"
+                class="d-inline-block align-top"
+                alt=""
+              />
+              Store
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              <img
+                src="./pokeIcons/poke-wingIcon.png"
+                height="30"
+                class="d-inline-block align-top"
+                alt=""
+              />
+              About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pokemon.html">
+              <img
+                src="./pokeIcons/pokemon-icon.png"
+                height="30"
+                class="d-inline-block align-top"
+                alt=""
+              />
+              Pokedex
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar -->
 
-  </header>
+    <main>
+      <section class="container" id="bootstrap-overrides">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-12 title">
+            <h1>Featured Characters</h1>
+          </div>
+        </div>
+        <!-- Row -->
+        <div class="row justify-content-center">
+          <div class="col-md-3 icons" id="pikachuIcon">
+            <a href="#sectionPikachu"
+              ><img src="./images/icons/pikachu.png"
+            /></a>
+            <h3>Pikachu</h3>
+          </div>
+          <div class="col-md-3 icons" id="charizardIcon">
+            <a href="#sectionCharizard"
+              ><img src="./images/icons/charizard.png"
+            /></a>
+            <h3>Charizard</h3>
+          </div>
+          <div class="col-md-3 icons" id="squirtleIcon">
+            <a href="#sectionSquirtle"
+              ><img src="./images/icons/squirtle.png"
+            /></a>
+            <h3>Squirtle</h3>
+          </div>
+          <div class="col-md-3 icons" id="eeveeIcon">
+            <a href="#sectionEevee"><img src="./images/icons/eevee.png" /></a>
+            <h3>Eevee</h3>
+          </div>
+        </div>
+      </section>
+      <section class="container" id="bootstrap-overrides">
+        <!-- Row -->
+        <div class="row" id="sectionPikachu">
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/pikachu/pikachu_charizard_plush.jpeg"
+                alt="pikchu charizard themed plush"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pikachu Charizard themed plush</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$17.99</p>
+                  <p>| Plush</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Feature:Pokemon Pikachu With Charizard hat Plush Soft Toy
+                    Stuffed Animal Doll 9in Open Mouth
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a href="pikachuBuy.html" target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/pikachu/pikachu_binder.jpeg"
+                alt="pikachu binder"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Pikachu 9-Pocket Binder</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$35.99</p>
+                  <p>| Storage</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Includes (20) premium 3-web pages with black backing to
+                    frame your cards
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/pikachu/pikachu_sweater.jpg"
+                alt="pikachu sweater"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Pikachu Pullover Hoodie</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$34.98</p>
+                  <p>| Clothing</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Enjoy comfort and fashion at the same time with this unique
+                    Boy's graphic hoodie design from Pokemon.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/pikachu/pikachu_headphones.jpg"
+                alt="pikachu headphones"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pikachu Bluetooth Headphones</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$29.99</p>
+                  <p>| Hardware</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Connect any device to wirelessly stream high quality,
+                    kid-friendly stereo sound for entertainment and/or
+                    education.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+        <div class="row" id="sectionCharizard">
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/charizard/charizard_plush.jpeg"
+                alt="Charizard plush"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Charizard Poké Plush - 10 ¼ In.</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$17.99</p>
+                  <p>| Plush</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Light a fire with Charizard! This powerful Fire- and
+                    Flying-type Pokémon knows how to battle
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/charizard/charizard_mug.jpeg"
+                alt="pikachu headphones"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon - Charizard Mug - White</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$10.00</p>
+                  <p>| Kitchenware</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Perfect for whatever your preferred warm morning beverage
+                    might be, this is one mug you can't miss.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/charizard/charizard_sweater.jpeg"
+                alt="pikachu sweater"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Poke Christmas Blaze Charizard Ugly Sweater</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$54.00</p>
+                  <p>| Clothing</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    This Anime Ape exclusive Ugly Christmas Sweater design is
+                    guaranteed to get attention and get the party started.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/charizard/charizard_controller.png"
+                alt="Charizard controller"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Custom Charizard gamecube controller</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$159.98</p>
+                  <p>| Hardware</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Nitnendo GameCube controller features a state of the art
+                    reproduction of the original GameCube
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+        <div class="row" id="sectionSquirtle">
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/squirtle/plush.jpeg" alt="Squirtle plush" />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon 8" Plush - Squirtle</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$15.99</p>
+                  <p>| Plush</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Cute and cuddly 8" Pokémon Squirtle Plush Stuffed Animal is
+                    a must have for all Pokemon fans!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/squirtle/mug.jpeg" alt="Squirtle mug" />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Squirtle Squad Coffee Mug</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$16.00</p>
+                  <p>| Kitchenware</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Our premium ceramic coffee mugs make art a part of your
+                    everyday life. Available in 11oz and 15oz options.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img
+                src="./images/squirtle/ugly_sweater.jpeg"
+                alt="squirtle ugly sweater"
+              />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Squirtle Ugly Christmas Sweater</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$54.00</p>
+                  <p>| Clothing</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    This Anime Ape exclusive Ugly Christmas Sweater design is
+                    guaranteed to get attention and get the party started.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/squirtle/iphone_case.jpeg" alt="iphone case" />
+            </div>
+            <div class="titleBox">
+              <h6>Pixel Squirtle iPhone 13 Impact Case</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$39.95</p>
+                  <p>| Hardware</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Designed for the iPhone 13. This Pixel Squirtle iPhone 13
+                    Impact Case protects your iPhone 13 from harm.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Row -->
+        <div class="row" id="sectionEevee">
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/eevee/plush.jpg" alt="Eevee plush" />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon 18” Plush Sleeping Eevee- Cuddly</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$59.89</p>
+                  <p>| Plush</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    CUDDLY Join the fun with the adorable and snuggly Eevee
+                    plush, a must-have for all Pokémon fans
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/eevee/folder.jpeg" alt="Eevee folder" />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Center A4 Size Eevee Folder</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$6.84</p>
+                  <p>| Stationery</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    This Folder is a product featuring a cute Eevee design,
+                    designed to hold and organize A4-sized documents.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/eevee/sweater.jpeg" alt="eevee ugly sweater" />
+            </div>
+            <div class="titleBox">
+              <h6>Pokemon Eevee Ugly Christmas Sweater</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$54.00</p>
+                  <p>| Clothing</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    This Anime Ape exclusive Ugly Christmas Sweater design is
+                    guaranteed to get attention and get the party started.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg border border-secondary rounded product">
+            <div class="box small">
+              <img src="./images/eevee/chair.jpeg" alt="eevee chair" />
+            </div>
+            <div class="titleBox">
+              <h6>Eevee Pokemon Doll House Chair</h6>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front desBox">
+                  <p>$36.31</p>
+                  <p>| Furniture</p>
+                </div>
+                <div class="flip-card-back desBox backDesBox">
+                  <p>
+                    Designed to fit in a dollhouse featuring an Eevee-themed
+                    designed for Pokemon fans to incorporate into their playtime
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="buyBox">
+              <a
+                href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
+                target="_blank"
+                ><button type="button" class="btn btn-outline-dark btn-block">
+                  Buy
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="index.html">
-      <img src="./pokeIcons/pokedexIcon.png" height="30" class="d-inline-block align-top" alt="">
-      Home
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="store.html">
-            <img src="./pokeIcons/poke-storeIcon.png " height="30" class="d-inline-block align-top" alt="">
-            Store
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">
-            <img src="./pokeIcons/poke-wingIcon.png" height="30" class="d-inline-block align-top" alt="">
-            About
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pokemon.html">
-            <img src="./pokeIcons/pokemon-icon.png" height="30" class="d-inline-block align-top" alt="">
-            Pokedex
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar -->
+    <!-- Footer -->
+    <footer>
+      <h2 class="center">Pokedex</h2>
 
-
-  <main>
-    <section class="container" id="bootstrap-overrides">
-      <!-- Row -->
-      <div class="row">
-        <div class="col-md-12 title">
-          <h1>Featured Characters</h1>
+      <div class="container">
+        <div class="row center">
+          <div class="col-md-6">
+            <h3>Ashanti</h3>
+            <p>
+              <i class="fi-xnluxl-envelope"></i>&nbsp PokedexAshanti@gmail.com
+            </p>
+            <p><i class="fi-xnsrxl-phone-solid"></i>&nbsp (626) 775-4857</p>
+          </div>
+          <div class="col-md-6">
+            <h3>Socials</h3>
+            <a href="https://twitter.com" target="_blank"
+              ><i class="fi-xnsuxl-twitter"></i
+            ></a>
+            <a href="https://fb.com" target="_blank"
+              ><i class="fi-snsuxl-facebook"></i
+            ></a>
+            <a href="https://linkedin.com" target="_blank"
+              ><i class="fi-snsuxl-linkedin"></i
+            ></a>
+            <br /><br />
+          </div>
         </div>
       </div>
-      <!-- Row -->
-      <div class="row justify-content-center">
-        <div class="col-md-3 icons" id="pikachuIcon">
-          <a href="#sectionPikachu"><img src="/images/icons/pikachu.png" /></a>
-          <h3>Pikachu</h3>
-        </div>
-        <div class="col-md-3 icons" id="charizardIcon">
-          <a href="#sectionCharizard"><img src="/images/icons/charizard.png" /></a>
-          <h3>Charizard</h3>
-        </div>
-        <div class="col-md-3 icons" id="squirtleIcon">
-          <a href="#sectionSquirtle"><img src="/images/icons/squirtle.png" /></a>
-          <h3>Squirtle</h3>
-        </div>
-        <div class="col-md-3 icons" id="eeveeIcon">
-          <a href="#sectionEevee"><img src="/images/icons/eevee.png" /></a>
-          <h3>Eevee</h3>
-        </div>
-      </div>
-    </section>
-    <section class="container" id="bootstrap-overrides">
-      <!-- Row -->
-      <div class="row" id="sectionPikachu">
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/pikachu/pikachu_charizard_plush.jpeg" alt="pikchu charizard themed plush" />
-          </div>
-          <div class="titleBox">
-            <h6>Pikachu Charizard themed plush</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$17.99</p>
-                <p>| Plush</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Feature:Pokemon Pikachu With Charizard hat Plush Soft Toy
-                  Stuffed Animal Doll 9in Open Mouth
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="pikachuBuy.html" target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/pikachu/pikachu_binder.jpeg" alt="pikachu binder" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Pikachu 9-Pocket Binder</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$35.99</p>
-                <p>| Storage</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Includes (20) premium 3-web pages with black backing to
-                  frame your cards
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/pikachu/pikachu_sweater.jpg" alt="pikachu sweater" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Pikachu Pullover Hoodie</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$34.98</p>
-                <p>| Clothing</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Enjoy comfort and fashion at the same time with this unique
-                  Boy's graphic hoodie design from Pokemon.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/pikachu/pikachu_headphones.jpg" alt="pikachu headphones" />
-          </div>
-          <div class="titleBox">
-            <h6>Pikachu Bluetooth Headphones</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$29.99</p>
-                <p>| Hardware</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Connect any device to wirelessly stream high quality,
-                  kid-friendly stereo sound for entertainment and/or
-                  education.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-      </div>
-      <!-- Row -->
-      <div class="row" id="sectionCharizard">
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/charizard/charizard_plush.jpeg" alt="Charizard plush" />
-          </div>
-          <div class="titleBox">
-            <h6>Charizard Poké Plush - 10 ¼ In.</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$17.99</p>
-                <p>| Plush</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Light a fire with Charizard! This powerful Fire- and
-                  Flying-type Pokémon knows how to battle
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/charizard/charizard_mug.jpeg" alt="pikachu headphones" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon - Charizard Mug - White</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$10.00</p>
-                <p>| Kitchenware</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Perfect for whatever your preferred warm morning beverage
-                  might be, this is one mug you can't miss.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/charizard/charizard_sweater.jpeg" alt="pikachu sweater" />
-          </div>
-          <div class="titleBox">
-            <h6>Poke Christmas Blaze Charizard Ugly Sweater</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$54.00</p>
-                <p>| Clothing</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  This Anime Ape exclusive Ugly Christmas Sweater design is
-                  guaranteed to get attention and get the party started.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/charizard/charizard_controller.png" alt="Charizard controller" />
-          </div>
-          <div class="titleBox">
-            <h6>Custom Charizard gamecube controller</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$159.98</p>
-                <p>| Hardware</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Nitnendo GameCube controller features a state of the art
-                  reproduction of the original GameCube
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-      </div>
-      <!-- Row -->
-      <div class="row" id="sectionSquirtle">
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/squirtle/plush.jpeg" alt="Squirtle plush" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon 8" Plush - Squirtle</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$15.99</p>
-                <p>| Plush</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Cute and cuddly 8" Pokémon Squirtle Plush Stuffed Animal is
-                  a must have for all Pokemon fans!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/squirtle/mug.jpeg" alt="Squirtle mug" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Squirtle Squad Coffee Mug</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$16.00</p>
-                <p>| Kitchenware</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Our premium ceramic coffee mugs make art a part of your
-                  everyday life. Available in 11oz and 15oz options.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/squirtle/ugly_sweater.jpeg" alt="squirtle ugly sweater" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Squirtle Ugly Christmas Sweater</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$54.00</p>
-                <p>| Clothing</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  This Anime Ape exclusive Ugly Christmas Sweater design is
-                  guaranteed to get attention and get the party started.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/squirtle/iphone_case.jpeg" alt="iphone case" />
-          </div>
-          <div class="titleBox">
-            <h6>Pixel Squirtle iPhone 13 Impact Case</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$39.95</p>
-                <p>| Hardware</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Designed for the iPhone 13. This Pixel Squirtle iPhone 13
-                  Impact Case protects your iPhone 13 from harm.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-      </div>
-      <!-- Row -->
-      <div class="row" id="sectionEevee">
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/eevee/plush.jpg" alt="Eevee plush" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon 18” Plush Sleeping Eevee- Cuddly</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$59.89</p>
-                <p>| Plush</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  CUDDLY Join the fun with the adorable and snuggly Eevee
-                  plush, a must-have for all Pokémon fans
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/eevee/folder.jpeg" alt="Eevee folder" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Center A4 Size Eevee Folder</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$6.84</p>
-                <p>| Stationery</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  This Folder is a product featuring a cute Eevee design,
-                  designed to hold and organize A4-sized documents.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/eevee/sweater.jpeg" alt="eevee ugly sweater" />
-          </div>
-          <div class="titleBox">
-            <h6>Pokemon Eevee Ugly Christmas Sweater</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$54.00</p>
-                <p>| Clothing</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  This Anime Ape exclusive Ugly Christmas Sweater design is
-                  guaranteed to get attention and get the party started.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-        <!-- Column -->
-        <div class="col-lg border border-secondary rounded product">
-          <div class="box small">
-            <img src="/images/eevee/chair.jpeg" alt="eevee chair" />
-          </div>
-          <div class="titleBox">
-            <h6>Eevee Pokemon Doll House Chair</h6>
-          </div>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front desBox">
-                <p>$36.31</p>
-                <p>| Furniture</p>
-              </div>
-              <div class="flip-card-back desBox backDesBox">
-                <p>
-                  Designed to fit in a dollhouse featuring an Eevee-themed
-                  designed for Pokemon fans to incorporate into their playtime
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="buyBox">
-            <a href="https://www.nintendo.com/store/products/enhanced-wired-controller-for-nintendo-switch-pokemon-snorlax-friends-117876/"
-              target="_blank"><button type="button" class="btn btn-outline-dark btn-block">
-                Buy
-              </button></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <h2 class="center">Pokedex</h2>
-
-    <div class="container">
-      <div class="row center">
-        <div class="col-md-6">
-          <h3>Ashanti</h3>
-          <p><i class="fi-xnluxl-envelope"></i>&nbsp PokedexAshanti@gmail.com</p>
-          <p><i class="fi-xnsrxl-phone-solid"></i>&nbsp (626) 775-4857</p>
-        </div>
-        <div class="col-md-6">
-          <h3>Socials</h3>
-          <a href="https://twitter.com" target="_blank"><i class="fi-xnsuxl-twitter"></i></a>
-          <a href="https://fb.com" target="_blank"><i class="fi-snsuxl-facebook"></i></a>
-          <a href="https://linkedin.com" target="_blank"><i class="fi-snsuxl-linkedin"></i></a>
-          <br><br>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-</body>
-
+    </footer>
+  </body>
 </html>
