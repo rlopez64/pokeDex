@@ -156,6 +156,13 @@ h3 {
   padding-right: 20px;
 }
 
+/* SEARCH */
+.pokeSearch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* COLORS 
 text-shadow: 5px 5px #874873;
 
