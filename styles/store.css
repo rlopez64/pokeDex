@@ -14,7 +14,7 @@ header {
 }
 
 .bannerImg {
-  background-image: url("./assets/storeBanner.jpg");
+  background-image: url("../assets/storeBanner.jpg");
   height: 100%;
 
   background-position: center;
