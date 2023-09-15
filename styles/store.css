@@ -16,10 +16,11 @@ header {
 .bannerImg {
   background-image: url("../assets/storeBanner.jpg");
   height: 100%;
-
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  border: 73.6px solid rgb(12, 168, 158);
+  border-width: 73.6px 0px;
 }
 
 /* Product Container Size */
