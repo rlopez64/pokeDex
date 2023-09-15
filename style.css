@@ -1,24 +1,25 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-body{
-    overflow-x:hidden;
-background-color: #FBFCF8;
+body {
+  overflow-x: hidden;
+  background-color: #fbfcf8;
 }
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}  
+}
 
-footer{
+footer {
   background-color: #002147;
   color: white;
 }
@@ -26,143 +27,131 @@ footer{
 /*HEADER*/
 header h1 {
   font-size: 500%;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-weight: bold;
-  text-shadow: -1px 1px 5px #000,
-				  1px 1px 2px #000,
-				  1px -1px 0 #000,
-				  -1px -1px 0 #000;
-
+  text-shadow: -1px 1px 5px #000, 1px 1px 2px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
-h4{
- font-family: 'Merriweather', serif;
+h4 {
+  font-family: "Merriweather", serif;
   font-weight: bold;
-    text-shadow: -1px 1px 7px #000,
-				  1px 1px 2px #000,
-				  1px -1px 0 #000,
-				  -1px -1px 0 #000;
-  
+  text-shadow: -1px 1px 7px #000, 1px 1px 2px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
-h1{
-   font-family: 'Merriweather', serif;
-
+h1 {
+  font-family: "Merriweather", serif;
 }
-
 
 /*HEADER*/
 
 /* NAVBAR STYLE */
 .bg-dark {
-    background-color: #BE9 !important;
+  background-color: #be9 !important;
 }
 .navbar-dark .navbar-brand {
-  font-size: 1.30rem;
-  font-family: 'Merriweather', serif;
-    color: #FE2020;
+  font-size: 1.3rem;
+  font-family: "Merriweather", serif;
+  color: #fe2020;
 }
-.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
-    color: #028;
+.navbar-dark .navbar-brand:focus,
+.navbar-dark .navbar-brand:hover {
+  color: #028;
 }
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
-  font-family: 'Merriweather', serif;
-    color: #FE4D4D;
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+  font-family: "Merriweather", serif;
+  color: #fe4d4d;
 }
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    color: #028;
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #028;
 }
 .navbar-dark .navbar-nav .nav-link {
-  font-family: 'Merriweather', serif;
-    color: #FE4D4D;
+  font-family: "Merriweather", serif;
+  color: #fe4d4d;
 }
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    color: #028;
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #028;
 }
 /* NAVBAR STYLE */
 
 /*MAIN*/
 
-h2{
+h2 {
   padding-top: 35px;
   font-size: 200%;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
-p{
- font-family: 'Merriweather', serif; 
+p {
+  font-family: "Merriweather", serif;
   padding-bottom: 35px;
   letter-spacing: 1.5px;
 }
 /*MAIN*/
 
 /*FOOTER*/
-h3{
-font-family: 'Merriweather', serif;
+h3 {
+  font-family: "Merriweather", serif;
 }
-
 
 /* Fav pokemon */
-.team{
-   margin-top: 80px;
-   margin-bottom: 80px;
+.team {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
-.team img{
+.team img {
   width: 250px;
   height: 250px;
-   
+
   object-fit: cover;
   border-radius: 50%;
   margin-top: 10px;
   margin-bottom: 50px;
   border: 4px solid black;
-
 }
 
-
-.hover1:hover{
+.hover1:hover {
   background-color: #c94c47;
   border: 3px solid black;
-  
 }
 
-.hover2:hover{
+.hover2:hover {
   background-color: #ffcc3a;
   border: 3px solid black;
-  
 }
 
-.hover3:hover{
+.hover3:hover {
   background-color: #6592b5;
   border: 3px solid black;
-  
 }
 
-.hover4:hover{
+.hover4:hover {
   background-color: #b09bbd;
   border: 3px solid black;
-  
 }
-
-
-
 
 /*Fav pokemon*/
 
-.resize{
+.resize {
   max-height: 200px;
   max-width: 200px;
 }
 
-.move{
+.move {
   padding-top: 30px;
 }
 
-.move2{
+.move2 {
   padding-bottom: 30px;
 }
 
-.videoFormat{
+.videoFormat {
   padding-top: 67px;
   padding-right: 20px;
 }
@@ -172,39 +161,30 @@ text-shadow: 5px 5px #874873;
 
 */
 
-
-
-
-
-
-
 #grad {
-  background-image: linear-gradient( rgba(255,0,0,0), rgba(255,0,0,1));
+  background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
 }
-#grad1{
-  background-color:#c72929
+#grad1 {
+  background-color: #c72929;
 }
 
 /**Video & Gifs*/
-.iframe-container {	
-	position: relative;
-	padding-bottom: 56.25%;	
-	padding-top: 35px;
-	height: 0;
-	overflow: hidden;
+.iframe-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
 }
 
 .iframe-container iframe {
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-#border{
+#border {
   border: 4px solid #529e7f;
 }
-
-
-
